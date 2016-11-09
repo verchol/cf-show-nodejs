@@ -3,7 +3,7 @@ version: '1.0'
 steps:
   build-step:
     type: build
-    image-name: kosta709/cf-show-nodejs
+    image-name: verchol/ecs-demo-nodejs
 
   push to registry:
     type: push
@@ -13,7 +13,7 @@ steps:
   deploy to ecs:
     image: codefresh/cf-deploy-ecs
     commands:
-      - cfecs-update --image-name kosta709/cf-show-nodejs --image-tag ${{CF_REVISION}} eu-west-1 test1 service-cf-show-nodejs
+      - cfecs-update --image-name verchol/ecs-demo-nodejs --image-tag ${{CF_REVISION}} eu-west-1 test1 service-cf-show-nodejs
     environment:
       - AWS_ACCESS_KEY_ID=${{AWS_ACCESS_KEY_ID}}
       - AWS_SECRET_ACCESS_KEY=${{AWS_SECRET_ACCESS_KEY}}
