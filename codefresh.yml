@@ -3,7 +3,7 @@ version: '1.0'
 steps:
   build-step:
     type: build
-    image-name: verchol/cf-show-nodejs
+    image-name: kosta709/cf-show-nodejs
 
   push to registry:
     type: push
