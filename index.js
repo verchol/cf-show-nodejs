@@ -10,7 +10,7 @@ var router  = express.Router();
 app.use('/', router);
 
 function getHtContent() {
-  
+
   var isoDate = new Date().toISOString().replace(/T|Z/g, " ");
   consulLib.putKv('lastRequestDate', isoDate);
   return isoDate;
@@ -19,17 +19,17 @@ function getHtContent() {
 consulLib.registerService();
 
 router.get('/', function(req, res) {
-  
-  var htHeader = '<HTML>' + 
+
+  var htHeader = '<HTML>' +
                    '<HEAD><STYLE> ' +
                        'body{ background-color: lightblue; padding-top: 150px; text-align: center; font: 50px monospace; }' +
-                   '</STYLE></HEAD>' + 
-                   '<BODY>';   
-  var htContent = getHtContent(); 
+                   '</STYLE></HEAD>' +
+                   '<BODY>';
+  var htContent = getHtContent();
   var htFooter = '</BODY></HTML>';
-  
+
   res.send( htHeader +
-                '<div>Hostname KOSTA 1' + os.hostname() +  '</div>' +
+                '<div>Hostname DEMO oleg' + os.hostname() +  '</div>' +
                 '<div>Time ' + htContent +  ' on server</div>' +
                 '<div><script>document.write("Time " + new Date().toISOString().replace(/T|Z/g, " ") + " on client");</script></div>' +
             htFooter).end();
@@ -41,4 +41,3 @@ router.get('/plain', function(req, res) {
 
 
 app.listen(3000);
-
